@@ -1,0 +1,30 @@
+classDiagram
+direction TB
+class IZoneComponent {
+  <<interface, Component>>
+  +string Name
+  +string Kind
+  +GetCarCount() int
+  +GetRevenue() decimal
+  +IReadOnlyList~IZoneComponent~ Children
+}
+class ParkingLot {
+  <<Leaf>>
+  -int _cars
+  -decimal _revenue
+}
+class Zone {
+  <<Composite>>
+  -List~IZoneComponent~ _children
+  +Add(IZoneComponent child) Zone
+}
+class ZoneAnalytics {
+  <<Client>>
+  +Report(IZoneComponent node)$ void
+  +PrintTree(IZoneComponent node, int level)$ void
+}
+IZoneComponent <|.. ParkingLot
+IZoneComponent <|.. Zone
+Zone "1" o-- "*" IZoneComponent : _children
+ZoneAnalytics ..> IZoneComponent : uses
+note for Zone "Місто, район, квартал, бізнес-центр: усе це Zone. Новий рівень не змінює аналітику"

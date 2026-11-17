@@ -1,0 +1,27 @@
+classDiagram
+direction LR
+class CarModel {
+  <<Flyweight>>
+  +string Name
+  +string Icon
+  +string Specs
+  +string Photo
+}
+class CarModelFactory {
+  <<Flyweight Factory>>
+  -Dictionary~string, CarModel~ _models
+  +int Count
+  +GetModel(string name) CarModel
+}
+class MapMarker {
+  <<Context>>
+  +string Plate
+  +double Latitude
+  +double Longitude
+  +DateTime Time
+  +CarModel Model
+}
+CarModelFactory "1" o-- "*" CarModel : _models
+MapMarker "*" --> "1" CarModel : Model
+note for CarModel "Одна копія на модель, спільна для всіх позначок"
+note for MapMarker "Лише власні дані: номер, координати, час"

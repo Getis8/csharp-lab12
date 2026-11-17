@@ -1,0 +1,31 @@
+classDiagram
+direction LR
+class Report {
+  <<abstract, Abstraction>>
+  +IDeliveryChannel Channel
+  +string Recipient
+  #string Title*
+  #BuildBody()* string
+  +Send() void
+}
+class TripReport { <<Refined Abstraction>> }
+class VehicleUsageReport { <<Refined Abstraction>> }
+class CorporateMonthlyReport { <<Refined Abstraction>> }
+class IDeliveryChannel {
+  <<interface, Implementor>>
+  +string Name
+  +Deliver(string recipient, string subject, string body) void
+}
+class AppChannel { <<Concrete Implementor>> }
+class EmailChannel { <<Concrete Implementor>> }
+class AccountingSystemChannel { <<Concrete Implementor>> }
+class TelegramBotChannel { <<Concrete Implementor>> }
+Report <|-- TripReport
+Report <|-- VehicleUsageReport
+Report <|-- CorporateMonthlyReport
+Report "1" --> "1" IDeliveryChannel : Channel (міст)
+IDeliveryChannel <|.. AppChannel
+IDeliveryChannel <|.. EmailChannel
+IDeliveryChannel <|.. AccountingSystemChannel
+IDeliveryChannel <|.. TelegramBotChannel
+note for Report "Вид звіту і канал змінюються незалежно: 3 + 4 класи замість 3 x 4"
