@@ -10,4 +10,4 @@ A **C# / .NET** console project: three problem situations of "Miskavto" solved w
 | 2 | Nested city zones, separate loops per level | **Composite** | `IZoneComponent`, `ParkingLot`, `Zone` |
 | 3 | A class for every report x channel combination | **Bridge** | `Report` holds an `IDeliveryChannel` |
 
-**Authors:** Katya, Stas. **Run:** `dotnet build`, `dotnet run`, choose `1`-`3`. Diagrams: `docs/diagrams/`.
+**Authors:** Katya, Stas. **Run:** `dotnet build`, `dotnet run`, choose `1`-`3`. Diagrams: `docs/diagrams/`. Peer review: `REVIEW.md`.

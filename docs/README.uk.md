@@ -10,4 +10,4 @@
 | 2 | Вкладені зони міста, цикли на кожен рівень | **Composite** | `IZoneComponent`, `ParkingLot`, `Zone` |
 | 3 | Клас на кожну комбінацію звіт x канал | **Bridge** | `Report` тримає `IDeliveryChannel` |
 
-**Автори:** Катя, Стас. **Запуск:** `dotnet build`, `dotnet run`, пункти `1`-`3`. Діаграми: `docs/diagrams/`.
+**Автори:** Катя, Стас. **Запуск:** `dotnet build`, `dotnet run`, пункти `1`-`3`. Діаграми: `docs/diagrams/`. Крос-рев'ю: `REVIEW.md`.
